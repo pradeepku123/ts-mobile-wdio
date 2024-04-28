@@ -6,7 +6,7 @@ node_modules/
 *.log
 *.spec.ts  # Adjust for your test file extension (e.g., *.test.ts)
 .nyc_output/
-allure-results/  # Example reporting directory
+allure-results/
 
 # IDE and editor configuration files
 .vscode/
