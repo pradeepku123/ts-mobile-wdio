@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "wdio:allure:report": "allure serve ./allure-results",
-    "wdio": "npx wdio run ./wdio.conf.ts"
+    "wdio": "npx wdio run config/wdio.conf.ts"
   },
   "keywords": [],
   "author": "",
