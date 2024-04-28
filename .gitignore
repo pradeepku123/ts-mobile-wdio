@@ -1,0 +1,31 @@
+# Node.js files
+node_modules/
+.cache/
+
+# Testing and reporting artifacts
+*.log
+*.spec.ts  # Adjust for your test file extension (e.g., *.test.ts)
+.nyc_output/
+allure-results/  # Example reporting directory
+
+# IDE and editor configuration files
+.vscode/
+.idea/
+
+# Temporary files
+.tmp/
+
+# Common OS generated files
+Thumbs.db
+DS_Store
+
+# Generated TypeScript declaration files
+*.d.ts
+
+# Appium server logs (optional)
+appium.log
+
+# Screenshots (optional)
+screenshots/
+
+# We can add more patterns as needed
