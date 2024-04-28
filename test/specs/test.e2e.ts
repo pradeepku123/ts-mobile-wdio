@@ -1,15 +1,31 @@
-import { expect } from '@wdio/globals'
-import LoginPage from '../pageobjects/login.page'
-import SecurePage from '../pageobjects/secure.page'
-
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.open()
-
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveTextContaining(
-            'You logged into a secure area!')
-    })
-})
-
+describe("BMS Device Under Test", () => {
+  beforeEach(async () => {
+    await driver.activateApp("com.bt.bms");
+  });
+  afterEach(async () => {
+    driver.terminateApp("com.bt.bms");
+  });
+  xit("Verify Landing Page.", async () => {
+    const titleHeaderMain = await driver
+      .$("id=com.bt.bms:id/title_header_main")
+      .getText();
+    await expect(titleHeaderMain).toEqual("It All Starts Here!");
+  });
+  it("Verify M-Ticket Should be selected By default", async () => {
+    await driver
+      .$(
+        `//android.widget.TextView[@resource-id="com.bt.bms:id/lblProfile" and @text="Profile"]`
+      )
+      .click();
+    await driver
+      .$(`//android.widget.TextView[@text="Accounts & Settings"]`)
+      .click();
+    const isSelected = await driver
+      .$(
+        `//androidx.recyclerview.widget.RecyclerView[@resource-id="com.bt.bms:id/rv_settings_menu"]/android.widget.LinearLayout[5]/android.widget.RadioButton
+`
+      )
+      .getAttribute("checked");
+    expect(isSelected).toBe("true");
+  });
+});
