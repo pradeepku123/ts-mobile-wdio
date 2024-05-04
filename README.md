@@ -36,9 +36,9 @@ Installing @wdio/cli to initialize project...
 
 # Pre-requsite
 
-- Node V16.16 LTS
+- Node Version-XX.XX LTS
 - Android Studio
-- Emulator Up & Runing
+- Emulator Up & Running
 - Appium Services & Appium Doctor
 
 # How to Start Appium echoSystem for Testing
@@ -95,11 +95,12 @@ process.cwd(),
 
 [AppDetails]
 
-https://support.testsigma.com/support/solutions/articles/32000019977-how-to-find-app-package-and-app-activity-of-your-android-app
+- https://support.testsigma.com/support/solutions/articles/32000019977-how-to-find-app-package-and-app-activity-of-your-android-app
 
 [Linux]
 $ adb devices
 $ adb shell dumpsys window | grep -E 'mCurrentFocus'
 
 [Error clear-app-user-data]
-https://stackoverflow.com/questions/24755341/unable-to-get-android-permission-clear-app-user-data
+
+- https://stackoverflow.com/questions/24755341/unable-to-get-android-permission-clear-app-user-data
