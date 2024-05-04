@@ -1,3 +1,4 @@
+import { SELECTOR } from "../helpers/locaters.ts";
 describe("BMS Device Under Test", () => {
   beforeEach(async () => {
     await driver.activateApp("com.bt.bms");
@@ -11,7 +12,7 @@ describe("BMS Device Under Test", () => {
       .getText();
     await expect(titleHeaderMain).toEqual("It All Starts Here!");
   });
-  it("Verify M-Ticket Should be selected By default", async () => {
+  xit("Verify M-Ticket Should be selected By default", async () => {
     await driver
       .$(
         `//android.widget.TextView[@resource-id="com.bt.bms:id/lblProfile" and @text="Profile"]`
@@ -27,5 +28,20 @@ describe("BMS Device Under Test", () => {
       )
       .getAttribute("checked");
     expect(isSelected).toBe("true");
+  });
+  it("Verifying Logout from BMS application", async () => {
+    await driver.$(SELECTOR.BMS_XPATH_PROFILE).click();
+    await driver.$(SELECTOR.BMS_XPATH_PROFILE_ACCOUNT_AND_SETTINGS).click();
+    const isSelected = await driver
+      .$(SELECTOR.BMS_XPATH_PROFILE_ACCOUNT_AND_SETTINGS_MSELECT_RADIO)
+      .getAttribute("checked");
+    expect(isSelected).toBe("true");
+    const settings = await driver.getSettings();
+    console.log(settings);
+    await driver.touchPerform([
+      { action: "press", options: { x: 550, y: 1900 } },
+      { action: "move", options: { x: 550, y: 600 } },
+      { action: "release" },
+    ]);
   });
 });
